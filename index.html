@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Caleb Schaack – Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --accent-soft: #e0edff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    body {
+      background-color: var(--bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--text-main);
+    }
+
+    .navbar {
+      background-color: #ffffff !important;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar-brand span {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      color: var(--text-muted) !important;
+    }
+
+    .nav-link:hover {
+      color: var(--accent) !important;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+      padding: 2rem 2.4rem;
+      margin-top: 1.5rem;
+      border: 1px solid var(--border);
+    }
+  
+    .hero-photo {
+      width: 180px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      border: 3px solid #e5e7eb;
+    }
+
+    .hero-name {
+      font-size: 2.25rem;
+      font-weight: 700;
+    }
+
+    .hero-tagline {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .accent-bar {
+      width: 72px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-top: 0.9rem;
+    }
+
+    .contact-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title-line {
+      height: 2px;
+      width: 64px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      border-radius: 999px;
+      margin-bottom: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .resume-card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 1.3rem 1.5rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--border);
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .entry-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .entry-subline {
+      font-size: 0.88rem;
+      color: var(--accent);
+      margin-top: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .entry-list {
+      margin-bottom: 0;
+      padding-left: 1.1rem;
+    }
+
+    .entry-list li {
+      font-size: 0.9rem;
+      color: #374151;
+      margin-bottom: 0.18rem;
+    }
+
+    .sidebar-card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1.1rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin: 0.12rem;
+      font-weight: 500;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .hero-card {
+        padding: 1.5rem 1.4rem;
+      }
+      .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .entry-meta {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span>Caleb&nbsp;Schaack</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navContent"
+        aria-controls="navContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#leadership">Leadership</a>
+          </li>
+          <li class="nav-item">
+            <!-- Optional: link to scratch page (allowed, not required) -->
+            <a class="nav-link" href="scratch.html">Scratch Page</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container my-4">
+    <!-- HERO / SUMMARY -->
+    <section class="hero-card">
+  <div class="row align-items-center">
+    <div class="col-lg-8">
+      <h1 class="hero-name mb-1">Caleb Schaack</h1>
+      <p class="hero-tagline mb-1">
+        Pre-Strategic Management student at BYU Marriott School of Business,
+        with experience in corporate partnerships, market research, and
+        entrepreneurial operations.
+      </p>
+      <div class="accent-bar"></div>
+    </div>
+
+    <!-- HEADSHOT -->
+    <div class="col-lg-4 text-center text-lg-end mt-3 mt-lg-0">
+      <img
+       src="Headshot.jpg"
+       alt="Caleb Schaack headshot"
+       class="hero-photo"
+      />
+
+      <div class="mt-3">
+        <p class="mb-1 contact-line">
+          <strong>Phone:</strong> (469) 406-6454
+        </p>
+        <p class="mb-1 contact-line">
+          <strong>Email:</strong>
+          <a href="mailto:cschaack@byu.edu">cschaack@byu.edu</a>
+        </p>
+        <p class="mb-0 contact-line">
+          <strong>LinkedIn:</strong>
+          <a
+            href="https://www.linkedin.com/in/caleb-schaack"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/caleb-schaack
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- GRID LAYOUT -->
+    <section class="mt-4">
+      <div class="row g-4">
+        <!-- LEFT: EDUCATION + EXPERIENCE + LEADERSHIP -->
+        <div class="col-lg-8">
+          <!-- EDUCATION -->
+          <div id="education" class="mb-3">
+            <h2 class="section-title">Education</h2>
+            <div class="section-title-line"></div>
+
+            <div class="resume-card">
+              <div class="entry-header">
+                <span>Brigham Young University – Marriott School of Business</span>
+                <span class="entry-meta">Apr 2027</span>
+              </div>
+              <div class="entry-subline">
+                Pre-Strategic Management · Provo, UT
+              </div>
+              <ul class="entry-list">
+                <li>GPA 3.93 / 4.00</li>
+                <li>ACT 32 / 36</li>
+                <li>
+                  BYU Spanish Challenge Exams – earned A’s in 16 credits,
+                  demonstrating advanced proficiency.
+                </li>
+                <li>
+                  Member: Corporate Strategy Association, Finance Society.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- EXPERIENCE -->
+          <div id="experience" class="mb-3">
+            <h2 class="section-title">Experience</h2>
+            <div class="section-title-line"></div>
+
+            <!-- BYU ATHLETICS -->
+            <div class="resume-card">
+              <div class="entry-header">
+                <span>Corporate Sponsorships, BYU Athletics</span>
+                <span class="entry-meta">Aug 2025 – Present · Provo, UT</span>
+              </div>
+              <div class="entry-subline">Hosting Intern</div>
+              <ul class="entry-list">
+                <li>
+                  Managed VIP hospitality for 150–200 sponsor guests per event,
+                  ensuring smooth operations and consistent service quality.
+                </li>
+                <li>
+                  Coordinated logistics, guest flow, and timing to keep partner
+                  experiences on schedule.
+                </li>
+                <li>
+                  Resolved real-time event issues to prevent delays and maintain
+                  sponsor satisfaction.
+                </li>
+              </ul>
+            </div>
+
+            <!-- ATHLETIFY -->
+            <div class="resume-card">
+              <div class="entry-header">
+                <span>Athletify</span>
+                <span class="entry-meta">Aug 2025 – Dec 2025 · Provo, UT</span>
+              </div>
+              <div class="entry-subline">
+                Strategy / Market Research Intern
+              </div>
+              <ul class="entry-list">
+                <li>
+                  Conducted market research on 2,000+ university recreation
+                  programs to assess scheduling systems and software gaps.
+                </li>
+                <li>
+                  Led a 5-member on-campus intern team, reviewing accuracy and
+                  coordinating weekly deliverables.
+                </li>
+                <li>
+                  Built a structured database to keep system and contact data
+                  organized, accurate, and accessible.
+                </li>
+                <li>
+                  Quadrupled research efficiency by implementing an
+                  AI-powered data-collection workflow.
+                </li>
+                <li>
+                  Produced a market-entry report with recommendations on features,
+                  pricing, and target institutions.
+                </li>
+              </ul>
+            </div>
+
+            <!-- POST MART -->
+            <div class="resume-card">
+              <div class="entry-header">
+                <span>Post Mart</span>
+                <span class="entry-meta">Jan 2025 – Dec 2025 · Provo, UT</span>
+              </div>
+              <div class="entry-subline">
+                Sales / Customer Service Representative
+              </div>
+              <ul class="entry-list">
+                <li>
+                  Managed multi-carrier billing (FedEx, UPS, USPS, DHL) with
+                  100% payment accuracy.
+                </li>
+                <li>
+                  Trained new employees and set expectations for speed,
+                  accuracy, and service quality.
+                </li>
+                <li>
+                  Assisted 100+ customers per shift across shipping and printing
+                  needs.
+                </li>
+                <li>
+                  Maintained a 100% satisfaction record by resolving issues
+                  quickly and professionally.
+                </li>
+              </ul>
+            </div>
+
+            <!-- PROSPER MULCH -->
+            <div class="resume-card">
+              <div class="entry-header">
+                <span>Prosper Mulch</span>
+                <span class="entry-meta">May 2020 – Jul 2022 · Prosper, TX</span>
+              </div>
+              <div class="entry-subline">Owner / Operator</div>
+              <ul class="entry-list">
+                <li>
+                  Increased total profit by $26,000 through financial planning
+                  and cost optimization.
+                </li>
+                <li>
+                  Grew profit margin from 59.6% to 81.1% by refining pricing and
+                  tightening operations.
+                </li>
+                <li>
+                  Expanded clientele by 300% through structured door-to-door
+                  outreach.
+                </li>
+                <li>
+                  Implemented a demand-based inventory system to prevent
+                  stockouts and minimize spoilage.
+                </li>
+                <li>
+                  Led a team of 20 employees, coordinating daily operations and
+                  ensuring on-time delivery.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- LEADERSHIP & SERVICE -->
+          <div id="leadership" class="mb-3">
+            <h2 class="section-title">Leadership &amp; Service</h2>
+            <div class="section-title-line"></div>
+
+            <div class="resume-card">
+              <div class="entry-header">
+                <span>The Church of Jesus Christ of Latter-day Saints</span>
+                <span class="entry-meta">Jan 2023 – Dec 2024 · Madrid, Spain</span>
+              </div>
+              <div class="entry-subline">Volunteer Representative</div>
+              <ul class="entry-list">
+                <li>
+                  Led and trained 20–25 missionaries through weekly trainings,
+                  leadership meetings, and performance reviews.
+                </li>
+                <li>
+                  Developed strong communication skills through daily outreach,
+                  teaching, and community interaction.
+                </li>
+                <li>
+                  Managed mission social media accounts, tripling outreach and
+                  improving digital ad engagement.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: SKILLS + PERSONAL -->
+        <div class="col-lg-4">
+          <div class="sidebar-card">
+            <h2 class="section-title">Skills</h2>
+            <div class="section-title-line"></div>
+            <div class="mb-2">
+              <span class="pill">Microsoft Excel</span>
+              <span class="pill">Qualtrics</span>
+              <span class="pill">Meta Business Suite</span>
+              <span class="pill">Canva</span>
+              <span class="pill">Microsoft Forms</span>
+              <span class="pill">PostalMate</span>
+            </div>
+            <div class="mt-2">
+              <strong>Languages:</strong><br />
+              Advanced Spanish (16 credits via BYU challenge exams)
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="section-title">Personal</h2>
+            <div class="section-title-line"></div>
+            <p class="mb-1">
+              Eagle Scout, Boy Scouts of America.
+            </p>
+            <p class="mb-1">
+              Performed vocally at Carnegie Hall and Dallas Meyerson Symphony Hall.
+            </p>
+            <p class="mb-0">
+              Enjoys weightlifting, tennis, basketball, and vocal performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Caleb Schaack
+    </footer>
+  </main>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Workout Suggestion App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: linear-gradient(135deg, #e5edf9 0%, #f3f6fc 40%, #ffffff 100%);
+      color: #111827;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .app-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #d1d5db;
+      padding: 1.8rem 1.7rem;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 12px 28px rgba(148, 163, 184, 0.28);
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      color: #1e40af;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #111827;
+    }
+
+    select,
+    input[type="number"] {
+      width: 100%;
+      padding: 0.45rem 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background-color: #f9fafb;
+      color: #111827;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.55rem 0.5rem;
+      border-radius: 999px;
+      border: none;
+      background-color: #2563eb;
+      color: #f9fafb;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 0.2rem;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .result {
+      margin-top: 1rem;
+      padding: 0.9rem 0.9rem;
+      border-radius: 12px;
+      background-color: #f3f6fc;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    .result-title {
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 0.25rem;
+    }
+
+    .streak {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: #2563eb;
+    }
+
+    .nav-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-card">
+    <h1>Workout Suggestion App</h1>
+    <p class="description">
+      Pick how you feel and how much time you have. The app suggests a workout
+      and tracks a simple “consistency streak” in your browser.
+    </p>
+
+    <label for="mood">How are you feeling today?</label>
+    <select id="mood">
+      <option value="focused">Focused</option>
+      <option value="tired">Tired</option>
+      <option value="stressed">Stressed</option>
+      <option value="hyped">Hyped</option>
+    </select>
+
+    <label for="minutes">How many minutes can you train?</label>
+    <input
+      id="minutes"
+      type="number"
+      min="5"
+      max="180"
+      value="45"
+    />
+
+    <button id="suggest-btn">Suggest Workout</button>
+
+    <div id="result" class="result" style="display: none;">
+      <div class="result-title" id="result-title"></div>
+      <div id="result-body"></div>
+      <div class="streak" id="streak-line"></div>
+    </div>
+
+    <a class="nav-link" href="scratch.html">← Back to Scratch Page</a>
+  </div>
+
+  <script>
+    const workouts = {
+      focused: [
+        {
+          title: "Push–Pull Power Session",
+          text:
+            "Bench press 4x6, barbell row 4x6, overhead press 3x8, pull-ups 3x max, then 5–10 minutes of core. Rest ~90 seconds between sets."
+        },
+        {
+          title: "Lower Body Strength",
+          text:
+            "Back squats 4x5, Romanian deadlifts 3x8, walking lunges 3x10/leg, calf raises 3x15, then 8–10 minutes of stretching."
+        }
+      ],
+      tired: [
+        {
+          title: "Low-Impact Upper Body",
+          text:
+            "Seated dumbbell press 3x10, chest-supported row 3x10, light incline press 3x12, band pull-aparts 3x15, followed by 10 minutes of easy walking."
+        },
+        {
+          title: "Recovery Circuit",
+          text:
+            "3 rounds: bodyweight squats x15, knee push-ups x10, light band rows x15, plank 30s, then 2–3 minutes of slow breathing."
+        }
+      ],
+      stressed: [
+        {
+          title: "De-Stress Full Body",
+          text:
+            "3–4 rounds: goblet squats x12, push-ups x10, dumbbell rows x12/side, hip thrusts x15, with 60 seconds of deep breathing between rounds."
+        },
+        {
+          title: "Walk + Core Focus",
+          text:
+            "20–30 minute brisk walk, then 3 rounds of: dead bugs x10/side, side planks 20s/side, glute bridges x15."
+        }
+      ],
+      hyped: [
+        {
+          title: "Heavy Day",
+          text:
+            "Deadlifts 5x3, bench press 5x3, weighted pull-ups 4x5, dips 3x8. Take longer rests and focus on strong, confident technique."
+        },
+        {
+          title: "Power & Conditioning",
+          text:
+            "5 rounds: kettlebell swings x15, push-ups x12, goblet squats x15, rest 45–60 seconds. Finish with 5 minutes of light cardio."
+        }
+      ]
+    };
+
+    function getStreak() {
+      const value = parseInt(localStorage.getItem("workoutStreak") || "0", 10);
+      return isNaN(value) ? 0 : value;
+    }
+
+    function bumpStreak() {
+      const updated = getStreak() + 1;
+      localStorage.setItem("workoutStreak", String(updated));
+      return updated;
+    }
+
+    document.getElementById("suggest-btn").addEventListener("click", () => {
+      const mood = document.getElementById("mood").value;
+      const minutes = parseInt(
+        document.getElementById("minutes").value || "0",
+        10
+      );
+
+      const moodWorkouts = workouts[mood] || [];
+      if (!moodWorkouts.length || minutes < 5) {
+        alert("Please enter a realistic time (5+ minutes).");
+        return;
+      }
+
+      const choice =
+        moodWorkouts[Math.floor(Math.random() * moodWorkouts.length)];
+
+      const intensityTag =
+        minutes < 25
+          ? "Quick session"
+          : minutes < 50
+          ? "Solid full workout"
+          : "Extended grind";
+
+      const streak = bumpStreak();
+
+      const titleEl = document.getElementById("result-title");
+      const bodyEl = document.getElementById("result-body");
+      const streakEl = document.getElementById("streak-line");
+      const wrapper = document.getElementById("result");
+
+      titleEl.textContent = `${choice.title} · ${intensityTag}`;
+      bodyEl.textContent = choice.text;
+      streakEl.textContent = `Streak: ${streak} workout${
+        streak === 1 ? "" : "s"
+      } logged on this device.`;
+
+      wrapper.style.display = "block";
+    });
+
+    // Initialize streak display if user has previous streak
+    if (getStreak() > 0) {
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result-title").textContent =
+        "Welcome back!";
+      document.getElementById("result-body").textContent =
+        "Log another workout suggestion to keep your streak going.";
+      document.getElementById("streak-line").textContent =
+        `Current streak: ${getStreak()} workout${
+          getStreak() === 1 ? "" : "s"
+        } logged on this device.`;
+    }
+  </script>
+</body>
+</html>
