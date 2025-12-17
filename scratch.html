@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch Page - Training</title>
+  <link rel="stylesheet" href="scratch-styles.css">
+</head>
+
+<body>
+  <!-- DIV 1: Header -->
+  <div class="header">
+    <h1 id="top">Training Scratch Page</h1>
+
+    <!-- Simple navigation (required: back to professional pages + link to web app) -->
+    <p class="nav">
+      <a href="index.html">Back to Resume</a> |
+      <a href="workout-app.html">Workout App</a> |
+      <a href="#video">Video</a> |
+      <a href="#tableau">Tableau</a>
+    </p>
+  </div>
+
+  <!-- DIV 2: Main content -->
+  <div class="main">
+    <h2>Why I Train</h2>
+    <p>
+      Training is the easiest way for me to stay consistent. If I’m doing the basics (sleep, food, lifting),
+      everything else feels easier to manage.
+    </p>
+
+    <h2 id="priorities">My Training Priorities</h2>
+    <p>
+      Required list: ordered list with an unordered list inside each item.
+    </p>
+
+    <ol>
+      <li>Recovery
+        <ul>
+          <li>Sleep 7–9 hours</li>
+          <li>Stretch / mobility</li>
+          <li>Deload when needed</li>
+        </ul>
+      </li>
+      <li>Nutrition
+        <ul>
+          <li>Protein first</li>
+          <li>Hydrate</li>
+          <li>Keep it consistent</li>
+        </ul>
+      </li>
+      <li>Progress
+        <ul>
+          <li>Track lifts</li>
+          <li>Add weight or reps</li>
+          <li>Keep form clean</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p class="small">
+      On-page anchor example: <a href="#top">Back to top</a>
+    </p>
+
+    <!-- DIV 3: Images block -->
+    <div class="images">
+      <h2>Images (not from Bootstrap)</h2>
+      <p>These are the same clipart images I used before.</p>
+
+      <img class="clip" src="https://clipart-library.com/new_gallery/221-2210862_fitness-svg-icon-dumbbell-vector.png" alt="Dumbbell clipart">
+      <img class="clip" src="https://www.clipartmax.com/png/middle/202-2023369_file-athlet...ics-pictogram-svg-wikimedia-commons-olympic-pictograms-png.png" alt="Olympic pictograms clipart">
+
+      <p class="small">
+        (Optional local image also works on GitHub Pages if the file exists in your repo:)
+      </p>
+      <img class="headshot" src="Headshot.jpg" alt="Headshot">
+    </div>
+
+    <h2 id="video">Training Video</h2>
+    <p>Same YouTube video embed as before.</p>
+    <iframe
+      class="frame"
+      src="https://www.youtube.com/embed/QkCa--fyGjA?si=ncASokrMuaO1hwlu"
+      title="Training video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+
+    <h2 id="tableau">Workout Tracker (Tableau)</h2>
+    <p>Same live interactive Tableau embed as before.</p>
+    <iframe
+      class="frame tall"
+      src="https://public.tableau.com/views/WorkoutTracker_15951633584280/MainDahsboard?:showVizHome=no&:embed=true"
+      title="Tableau workout tracker"
+      allowfullscreen></iframe>
+
+    <p class="small">
+      Quick nav: <a href="#priorities">Priorities</a> | <a href="#video">Video</a> | <a href="#tableau">Tableau</a>
+    </p>
+  </div>
+
+  <div class="footer">
+    <p>Scratch page built from a blank HTML file + a simple custom CSS file.</p>
+  </div>
+</body>
+</html>
